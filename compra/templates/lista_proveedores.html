@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container py-3">
+  <div class="d-flex w-100 justify-content-center">
+    <h1>Lista de Proveedores</h1>
+  </div>
+  <div>
+    <table class="table my-3">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>DNI</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for proveedor in proveedores %}
+        <tr>
+          <td>{{proveedor.id}}</td>
+          <td>{{ proveedor.nombre }}</td>
+          <td>{{ proveedor.apellido }}</td>
+          <td>{{ proveedor.dni }}</td>
+        </tr>
+        {% empty %}
+        <li>No hay proveedores registrados</li>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="my-5">
+    <a class="btn btn-primary text-light" class="" href="{% url 'index' %}">
+      Inicio
+    </a>
+  </div>
+</div>
+
+{% endblock %}

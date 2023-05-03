@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}MyBills{% endblock %}</title>
+    {% load static %}
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'bootstrap.css' %}"
+    />
+  </head>
+  <body>
+    <header class="bg-dark">
+      <div class="d-flex w-100 py-3 container">
+        <div class="w-25">
+          <a class="text-decoration-none" href="{% url 'index' %}"
+            ><h1 class="text-light">
+              {% block heading %}MIS COMPRAS{% endblock %}
+            </h1></a
+          >
+        </div>
+        <div class="w-75">
+          <nav class="h-100 w-100">
+            <div
+              class="d-flex justify-content-end align-items-center w-100 h-100"
+            >
+              <a
+                class="mx-2 btn btn-primary text-light"
+                href="{% url 'lista_proveedores' %}"
+                >Lista de Proveedores</a
+              >
+              <a
+                class="mx-2 btn btn-primary text-light"
+                href="{% url 'lista_productos' %}"
+                >Lista de productos</a
+              >
+              <a
+                class="mx-2 btn btn-success text-light"
+                href="{% url 'crear_proveedor' %}"
+                >Crear proveedores</a
+              >
+
+              <a
+                class="mx-2 btn btn-success text-light"
+                href="{% url 'crear_productos' %}"
+                >Crear producto</a
+              >
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>{% block content %}{% endblock %}</main>
+  </body>
+</html>
